@@ -76,7 +76,8 @@ img{display:block;height:auto;max-width:100%}
 .curtain-edge .f{background:var(--white)}
 .curtain-edge .k{background:var(--paper);transform:translateY(-6px)}
 #intro.lift .curtain{transform:translateY(calc(-100% - 80px))}
-.intro-center{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;pointer-events:none;padding-inline:16px}
+/* el padding de abajo sube el logo un poco sobre el centro para que se vea centrado a ojo */
+.intro-center{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;pointer-events:none;padding-inline:16px;padding-bottom:min(14vh,130px)}
 .paint-logo{width:min(74vw,520px);transform-origin:0 0;will-change:transform}
 .paint-logo svg{width:100%;height:auto;overflow:visible;display:block}
 .bs{stroke-dasharray:1 1;stroke-dashoffset:1;animation:brush .42s cubic-bezier(.6,.04,.3,1) forwards}
