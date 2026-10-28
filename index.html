@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="assets/logo-desdecero-negro.png">
+<title>Desde Cero Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="desde cero · Páginas web, diseño y marketing. Mirá mis trabajos y armá tu presupuesto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&family=Special+Elite&display=swap">
+<style>
+/* Layout: link-in-bio sobre papel cuadriculado. Logo arriba, una franja negra rasgada y tres botones
+   desplegables (trabajos, sobre mí, quiero mi página). Columna de 680px, mundo único claro. */
+:root{
+  color-scheme: light;
+  --paper:#EDEBE6;
+  --ink:#111111;
+  --ink-soft:#4A4A4A;
+  --dark-strip:#0E0E0E;
+  --accent:#FF3B1F;
+  --white:#FBFAF7;
+  --tape:rgba(226,214,186,.72);
+  --f-display:"Archivo","Arial Black","Helvetica Neue",sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-hand:"Caveat","Segoe Print","Comic Sans MS",cursive;
+  --f-type:"Special Elite","Courier New",ui-monospace,monospace;
+  --shadow:0 2px 4px rgba(0,0,0,.15),0 12px 24px -8px rgba(0,0,0,.25);
+  --ease:cubic-bezier(.7,0,.2,1);
+  --out:cubic-bezier(.2,.8,.2,1);
+  --texture:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='p' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.011' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23fff' surfaceScale='2.4' diffuseConstant='1'%3E%3CfeDistantLight azimuth='40' elevation='55'/%3E%3C/feDiffuseLighting%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='.22' intercept='.8'/%3E%3CfeFuncG type='linear' slope='.22' intercept='.8'/%3E%3CfeFuncB type='linear' slope='.22' intercept='.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{margin:0;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body,.curtain{background-color:var(--paper);
+  background-image:linear-gradient(rgba(17,17,17,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(17,17,17,.07) 1px,transparent 1px),var(--texture);
+  background-size:24px 24px,24px 24px,600px 600px;background-blend-mode:normal,normal,multiply}
+html.intro-on,html.intro-on body{overflow:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit}
+img{display:block;height:auto;max-width:100%}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:100%;max-width:680px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.grain{position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.16;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- piezas del collage ---------- */
+.label{font-family:var(--f-display);font-stretch:125%;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2}
+.stamp{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-type);font-size:14px;line-height:1.1;padding:7px 11px 6px;border:2px solid currentColor;border-radius:4px;
+  text-transform:uppercase;letter-spacing:.04em;transform:rotate(var(--r,0deg));background:rgba(251,250,247,.35)}
+.stamp.red{color:var(--accent)}
+.tape{position:absolute;width:96px;height:28px;background:var(--tape);z-index:3;
+  clip-path:polygon(0 8%,6% 0,12% 10%,18% 0,24% 8%,30% 0,70% 0,76% 9%,82% 0,88% 10%,94% 0,100% 8%,100% 92%,94% 100%,88% 90%,82% 100%,76% 91%,70% 100%,30% 100%,24% 92%,18% 100%,12% 90%,6% 100%,0 92%);
+  box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.cut{display:inline-block;background:var(--accent);color:var(--white);padding:.06em .16em .02em;transform:rotate(-2deg);
+  clip-path:polygon(0 6%,8% 0,22% 5%,37% 1%,52% 6%,67% 0,82% 4%,100% 0,98% 30%,100% 58%,97% 100%,80% 95%,64% 100%,47% 95%,31% 100%,15% 94%,2% 100%,0 70%,3% 38%)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 22px;border:2.5px solid var(--ink);border-radius:6px;cursor:pointer;text-decoration:none;
+  font-family:var(--f-display);font-stretch:112%;font-weight:800;font-size:14.5px;letter-spacing:.01em;text-transform:uppercase;text-align:center;line-height:1.15;
+  background:var(--ink);color:var(--white);box-shadow:5px 5px 0 var(--accent);transition:transform .15s ease,box-shadow .15s ease,opacity .2s;-webkit-tap-highlight-color:transparent}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--accent)}
+.btn:active{transform:translate(5px,5px);box-shadow:0 0 0 transparent}
+.btn[aria-disabled="true"]{opacity:.35;pointer-events:none;box-shadow:none}
+
+/* aparecer: cae y se pega */
+.drop{transform:rotate(var(--r,0deg));transition:opacity .6s var(--out),transform .7s cubic-bezier(.3,1.5,.5,1);transition-delay:var(--d,0s)}
+.js-reveal .drop:not(.in){opacity:0;transform:rotate(calc(var(--r,0deg) + 5deg)) scale(1.06) translateY(-10px)}
+
+/* ======================= INTRO: el logo se pinta sobre el mismo papel ======================= */
+#intro{position:fixed;inset:0;z-index:250}
+.curtain{position:absolute;inset:0;filter:drop-shadow(0 12px 14px rgba(0,0,0,.22));transition:transform 1s cubic-bezier(.76,0,.24,1)}
+.curtain-edge{position:absolute;left:0;right:0;top:calc(100% - 2px);height:44px}
+.curtain-edge i{position:absolute;inset:0;display:block}
+.curtain-edge .f{background:var(--white)}
+.curtain-edge .k{background:var(--paper);transform:translateY(-6px)}
+#intro.lift .curtain{transform:translateY(calc(-100% - 80px))}
+.intro-center{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;pointer-events:none;padding-inline:16px}
+.paint-logo{width:min(74vw,520px);transform-origin:0 0;will-change:transform}
+.paint-logo svg{width:100%;height:auto;overflow:visible;display:block}
+.bs{stroke-dasharray:1 1;stroke-dashoffset:1;animation:brush .42s cubic-bezier(.6,.04,.3,1) forwards}
+.bs:nth-child(1){animation-delay:.2s}.bs:nth-child(2){animation-delay:.4s}.bs:nth-child(3){animation-delay:.6s}.bs:nth-child(4){animation-delay:.8s}
+@keyframes brush{to{stroke-dashoffset:0}}
+
+/* ======================= HERO ======================= */
+.hero{padding-block:calc(26px + env(safe-area-inset-top,0px)) 8px;text-align:center}
+.hero .label{display:block}
+.slogan{max-width:30ch;margin-inline:auto;text-wrap:balance;line-height:1.5}
+.logo-box{position:relative;width:min(100%,560px);margin:clamp(14px,3vw,22px) auto 0;aspect-ratio:640/357}
+.logo-box img,.logo-box .ghost{position:absolute;inset:0;width:100%;height:100%}
+.intro-on .logo-box{opacity:0}
+/* efecto cada 6 s: impresión corrida (una copia roja se desfasa y el logo tiembla) */
+.logo-box .ghost{background:var(--accent);-webkit-mask:url("assets/logo-desdecero.png") center/100% 100% no-repeat;mask:url("assets/logo-desdecero.png") center/100% 100% no-repeat;
+  opacity:0;mix-blend-mode:multiply;animation:misreg 6s steps(1,end) 1.5s infinite}
+.logo-box img{animation:jolt 6s ease-out 1.5s infinite}
+@keyframes misreg{
+  0%,80%{opacity:0;transform:none}
+  82%{opacity:1;transform:translate(9px,5px)}
+  85%{opacity:1;transform:translate(-6px,-3px)}
+  88%{opacity:1;transform:translate(4px,2px)}
+  91%{opacity:.9;transform:translate(-2px,1px)}
+  94%,100%{opacity:0;transform:none}}
+@keyframes jolt{
+  0%,80%{transform:none;clip-path:inset(0)}
+  82%{transform:translateX(-3px) skewX(-4deg);clip-path:inset(0 0 52% 0)}
+  84%{transform:translateX(4px);clip-path:inset(40% 0 0 0)}
+  86%{transform:translateX(-2px) skewX(3deg);clip-path:inset(0)}
+  89%{transform:rotate(-.6deg)}
+  92%,100%{transform:none;clip-path:inset(0)}}
+.year{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px}
+.year::before,.year::after{content:"";width:28px;height:1.5px;background:currentColor}
+
+/* franja negra rasgada con frases */
+.strip{position:relative;height:clamp(100px,24vw,150px);margin-top:clamp(22px,5vw,36px)}
+.strip .fiber,.strip .ink{position:absolute;inset:0}
+.strip .fiber{background:var(--white);inset:-7px 0}
+.strip .ink{background:var(--dark-strip);overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);align-items:center}
+.marq{min-width:0;transform:rotate(-2deg)}
+.marq-track{display:flex;width:max-content;animation:marq 48s linear infinite}
+.marq-track span{flex:none;font-family:var(--f-display);font-stretch:125%;font-weight:900;font-style:italic;text-transform:uppercase;color:var(--paper);
+  font-size:clamp(38px,9.5vw,82px);line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.marq-track span i{font-style:normal;color:var(--accent);font-size:.55em;vertical-align:.2em;margin-inline:.45em}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ======================= BOTONES DESPLEGABLES ======================= */
+.links{display:grid;gap:22px;padding-block:clamp(34px,7vw,52px) 10px}
+.acc{transform:rotate(var(--r,0deg))}
+.acc-btn{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;min-height:72px;padding:14px 18px;
+  background:var(--white);border:2.5px solid var(--ink);border-radius:8px;box-shadow:5px 5px 0 var(--ink);scroll-margin-top:14px;
+  transition:transform .15s ease,box-shadow .15s ease,background .25s;-webkit-tap-highlight-color:transparent}
+.acc-btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.acc-btn:active{transform:translate(5px,5px);box-shadow:0 0 0 transparent}
+.acc-btn:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.acc-btn .e{font-size:26px;line-height:1}
+.acc-btn .t{font-family:var(--f-display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(17px,4.6vw,22px);line-height:1;letter-spacing:-.02em}
+.acc-btn .t small{display:block;margin-top:6px;font-family:var(--f-body);font-stretch:100%;font-weight:500;text-transform:none;letter-spacing:0;font-size:13.5px;color:var(--ink-soft)}
+.acc-btn .pm{position:relative;width:30px;height:30px;border-radius:50%;border:2px solid currentColor;transition:transform .4s var(--out),background .25s}
+.acc-btn .pm::before,.acc-btn .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:currentColor}
+.acc-btn .pm::after{transform:rotate(90deg);transition:transform .4s var(--out)}
+.acc.open .acc-btn .pm{transform:rotate(180deg)}
+.acc.open .acc-btn .pm::after{transform:rotate(0)}
+.acc.main .acc-btn{background:var(--ink);color:var(--white);box-shadow:5px 5px 0 var(--accent)}
+.acc.main .acc-btn:hover{box-shadow:7px 7px 0 var(--accent)}
+.acc.main .acc-btn .t small{color:rgba(251,250,247,.7)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+.acc.open .acc-panel{grid-template-rows:1fr}
+.acc-panel > div{overflow:hidden;min-height:0}
+.acc-in{padding:26px 2px 8px}
+
+/* trabajos */
+.table{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 6px 18px;margin-inline:-6px;scrollbar-width:none;overscroll-behavior-x:contain}
+.table::-webkit-scrollbar{display:none}
+.work{flex:none;width:min(86%,340px);scroll-snap-align:start;display:grid;gap:16px;align-content:start}
+.polaroid{position:relative;display:block;background:var(--white);padding:11px 11px 46px;box-shadow:var(--shadow);text-decoration:none;
+  transform:rotate(var(--r,0deg));transition:transform .45s var(--out),box-shadow .45s var(--out)}
+.polaroid img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:top;background:#ddd}
+.polaroid .tape{top:-13px;left:50%;margin-left:-48px;transform:rotate(-3deg)}
+.polaroid .cap{position:absolute;left:13px;right:13px;bottom:10px;font-family:var(--f-hand);font-weight:700;font-size:23px;line-height:1;color:var(--ink-soft)}
+.polaroid .go{position:absolute;top:19px;right:19px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--white);color:var(--ink);font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .35s var(--out)}
+.polaroid:hover .go{transform:rotate(-45deg) scale(1.08)}
+.w-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:6px}
+.nav-btn{all:unset;box-sizing:border-box;cursor:pointer;display:grid;place-items:center;width:52px;height:52px;border:2.5px solid var(--ink);border-radius:6px;background:var(--white);
+  font-size:22px;font-weight:700;box-shadow:4px 4px 0 var(--ink);transition:transform .15s ease,box-shadow .15s ease,opacity .2s}
+.nav-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.nav-btn:active{transform:translate(4px,4px);box-shadow:none}
+.nav-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.nav-btn:disabled{opacity:.3;cursor:default;box-shadow:none;transform:none}
+#wCount{min-width:5ch;text-align:center;font-variant-numeric:tabular-nums}
+.polaroid:hover,.polaroid:focus-visible{transform:rotate(0) translateY(-5px);box-shadow:0 4px 8px rgba(0,0,0,.14),0 26px 40px -12px rgba(0,0,0,.35)}
+.work-info{display:grid;gap:6px;justify-items:start;padding-inline:4px}
+.work-info h3{margin:0;font-family:var(--f-display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(26px,7vw,34px);line-height:.9;letter-spacing:-.03em}
+.work-info p{margin:0;color:var(--ink-soft);font-size:15px}
+.labels{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.labels li{font-size:13.5px;font-weight:600;padding:7px 12px;background:var(--white);box-shadow:0 1px 2px rgba(0,0,0,.14);transform:rotate(var(--r,0deg))}
+
+/* sobre mí */
+.about h3{margin:0 0 12px;font-family:var(--f-display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(23px,6.4vw,38px);line-height:.92;letter-spacing:-.03em}
+.about p{margin:0 0 14px;color:var(--ink-soft);font-size:16px}
+.about p b{color:var(--ink);font-weight:600}
+.about h4{margin-top:22px !important}
+.about h4{margin:0 0 10px;font-family:var(--f-display);font-stretch:125%;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+
+/* quiero mi página: servicios para cotizar */
+.q-intro{margin:0 0 22px;color:var(--ink-soft)}
+.q{all:unset;display:block;margin-bottom:28px}
+.q-title{display:block;padding:0;margin-bottom:12px;font-family:var(--f-display);font-stretch:112%;font-weight:800;font-size:17px;line-height:1.25}
+.q-n{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:10px;border-radius:50%;background:var(--ink);color:var(--white);font-size:13px;vertical-align:1px}
+.q-help{margin:-4px 0 12px;font-size:14px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:9px 15px;border:2px solid rgba(17,17,17,.28);border-radius:999px;background:var(--white);font-size:14.5px;font-weight:500;line-height:1.25;
+  transform:rotate(var(--r,0deg));transition:border-color .2s,background .2s,color .2s,box-shadow .25s,transform .3s var(--out)}
+.chip:hover span{border-color:var(--ink)}
+.chip input:checked + span{background:var(--ink);color:var(--white);border-color:var(--ink);box-shadow:3px 3px 0 var(--accent);transform:rotate(0) translate(-1px,-1px)}
+.chip input:focus-visible + span{outline:3px solid var(--accent);outline-offset:2px}
+.svc-list{display:grid;gap:12px}
+.svc{position:relative;display:block;cursor:pointer}
+.svc input{position:absolute;opacity:0;pointer-events:none}
+.svc-card{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:14px 14px 14px 12px;background:var(--white);border:2px solid rgba(17,17,17,.25);border-radius:8px;
+  transform:rotate(var(--r,0deg));transition:border-color .2s,box-shadow .25s,transform .3s var(--out)}
+.svc:hover .svc-card{border-color:var(--ink)}
+.svc input:focus-visible + .svc-card{outline:3px solid var(--accent);outline-offset:3px}
+.svc input:checked + .svc-card{border-color:var(--ink);box-shadow:4px 4px 0 var(--accent);transform:rotate(0) translate(-2px,-2px)}
+.svc .box{display:grid;place-items:center;width:26px;height:26px;border:2px solid var(--ink);border-radius:5px;background:var(--white);transition:background .2s}
+.svc .box svg{opacity:0;transform:scale(.4);transition:opacity .2s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+.svc input:checked + .svc-card .box{background:var(--accent);border-color:var(--accent)}
+.svc input:checked + .svc-card .box svg{opacity:1;transform:none}
+.svc-txt b{display:block;font-weight:600;font-size:15.5px;line-height:1.25}
+.svc-txt small{display:block;color:var(--ink-soft);font-size:13.5px;line-height:1.35;margin-top:3px}
+.field{display:grid;gap:8px;margin:22px 0 18px}
+.field em{font-style:normal;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);text-transform:none}
+.field input,.field textarea{font:inherit;font-size:16px;padding:13px 14px;border:2px solid var(--ink);border-radius:6px;background:var(--white);color:var(--ink);min-width:0}
+.field textarea{resize:vertical;min-height:96px;line-height:1.45}
+.field input:focus-visible,.field textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.field + .field{margin-top:0}
+.fine{margin:12px 0 0;font-family:var(--f-type);font-size:12.5px;color:var(--ink-soft);text-align:center}
+
+/* pie */
+.foot{display:flex;justify-content:center;padding-block:28px calc(26px + env(safe-area-inset-bottom,0px))}
+.ig{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;text-decoration:none;font-family:var(--f-display);font-stretch:112%;font-weight:800;font-size:14px;
+  border:2px solid var(--ink);border-radius:999px;background:var(--white);transform:rotate(-1.5deg);transition:transform .3s var(--out),box-shadow .3s}
+.ig:hover{transform:rotate(0) translateY(-2px);box-shadow:3px 3px 0 var(--accent)}
+
+@media (min-width:760px){
+  .label{font-size:12.5px}
+}
+/* solo si RESPETAR_MOVIMIENTO_REDUCIDO = true y el sistema pide menos movimiento */
+html.rm *,html.rm *::before,html.rm *::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+</style>
+<script>document.documentElement.classList.add("intro-on")</script>
+</head>
+<body>
+
+<!-- ======================= INTRO ======================= -->
+<div id="intro" aria-hidden="true">
+  <div class="curtain"><div class="curtain-edge"><i class="f"></i><i class="k"></i></div></div>
+  <div class="intro-center">
+    <div class="paint-logo" id="paintLogo">
+      <svg viewBox="0 0 640 357">
+        <defs>
+          <filter id="rough" x="-30%" y="-30%" width="160%" height="160%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="30" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <mask id="brushMask" maskUnits="userSpaceOnUse" x="-80" y="-80" width="800" height="517">
+            <g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="128" filter="url(#rough)" id="strokes">
+              <path class="bs" pathLength="1" d="M-40 48 C 150 26, 440 70, 690 38"/>
+              <path class="bs" pathLength="1" d="M690 138 C 470 116, 180 160, -40 132"/>
+              <path class="bs" pathLength="1" d="M-40 226 C 200 208, 430 252, 690 220"/>
+              <path class="bs" pathLength="1" d="M690 318 C 450 300, 160 338, -40 310"/>
+            </g>
+          </mask>
+        </defs>
+        <image id="paintImg" href="assets/logo-desdecero-negro.png" x="0" y="0" width="640" height="357" mask="url(#brushMask)"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= HERO ======================= -->
+<header class="hero wrap" id="top">
+  <span class="label slogan">Te ayudo desde 0 hasta alcanzar tu sueño</span>
+  <div class="logo-box" id="heroLogo">
+    <span class="ghost" aria-hidden="true"></span>
+    <img src="assets/logo-desdecero-negro.png" alt="desde cero" width="640" height="357">
+  </div>
+  <span class="label year">2026</span>
+</header>
+
+<div class="strip" aria-label="Tu marca merece estar online. Webs. Branding.">
+  <div class="fiber" data-tear="5"></div>
+  <div class="ink" data-tear="9"><div class="marq" aria-hidden="true"><div class="marq-track" id="marq"></div></div></div>
+</div>
+
+<!-- ======================= BOTONES ======================= -->
+<main class="links wrap">
+  <section class="acc drop" style="--r:-.6deg">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p-trabajos" id="b-trabajos">
+      <span class="e" aria-hidden="true">🗂️</span>
+      <span class="t">Mis trabajos<small>Páginas que ya están online</small></span>
+      <span class="pm" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p-trabajos" role="region" aria-labelledby="b-trabajos" inert><div><div class="acc-in">
+      <div class="table" id="works"></div>
+      <div class="w-nav">
+        <button class="nav-btn" id="wPrev" aria-label="Página anterior">←</button>
+        <span class="label" id="wCount">1 / 1</span>
+        <button class="nav-btn" id="wNext" aria-label="Página siguiente">→</button>
+      </div>
+    </div></div></div>
+  </section>
+
+  <section class="acc drop" style="--r:.5deg;--d:.08s">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p-sobre" id="b-sobre">
+      <span class="e" aria-hidden="true">🙋‍♂️</span>
+      <span class="t">Sobre mí<small>¿Quién está detrás de desde cero?</small></span>
+      <span class="pm" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p-sobre" role="region" aria-labelledby="b-sobre" inert><div><div class="acc-in about">
+      <h3><span class="cut">Tadeo Betancor</span></h3>
+      <p>Me gusta programar y diseñar <b>proyectos a gran escala</b>. Fundé <b>desde cero</b> para que marcas y emprendedores tengan una página que trabaje por ellos todos los días. 🚀</p>
+      <p>Diseño, programo y armo el marketing en un solo lugar: hablás directo conmigo, de la idea a la página online.</p>
+      <h4>Lo que hago</h4>
+      <ul class="labels">
+        <li style="--r:-2deg">🖥️ Páginas web</li><li style="--r:1.5deg">🛒 Tiendas online</li><li style="--r:-1deg">🎨 Diseño</li>
+        <li style="--r:2deg">📈 Publicidad en redes</li><li style="--r:-1.5deg">✨ Identidad de marca</li>
+      </ul>
+    </div></div></div>
+  </section>
+
+  <section class="acc main drop" style="--r:-.4deg;--d:.16s">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p-quiero" id="b-quiero">
+      <span class="e" aria-hidden="true">💬</span>
+      <span class="t">Quiero mi página<small>Elegí lo que necesitás y cotizá</small></span>
+      <span class="pm" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p-quiero" role="region" aria-labelledby="b-quiero" inert><div><div class="acc-in">
+      <form id="quote" novalidate>
+        <p class="q-intro">Respondé estas preguntas rápidas y te mando una cotización a medida por WhatsApp.</p>
+        <fieldset class="q">
+          <legend class="q-title"><span class="q-n">1</span>¿Qué necesitás?</legend>
+          <p class="q-help">Podés marcar más de una opción.</p>
+          <div class="svc-list" id="svcList"></div>
+        </fieldset>
+        <div id="preguntas"></div>
+        <label class="field" for="marca"><span class="label">Tu marca o negocio <em>(opcional)</em></span>
+          <input id="marca" type="text" autocomplete="organization" placeholder="Ej: Café Bruma"></label>
+        <label class="field" for="idea"><span class="label">Contame tu idea <em>(opcional)</em></span>
+          <textarea id="idea" rows="3" placeholder="Ej: vendo ropa por Instagram y quiero que los pedidos me lleguen por WhatsApp"></textarea></label>
+        <a class="btn" id="send" target="_blank" rel="noopener" aria-disabled="true">Cotizar por WhatsApp ↗</a>
+        <p class="fine" id="sendHint">Elegí al menos un servicio.</p>
+      </form>
+    </div></div></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <a class="ig" href="https://www.instagram.com/tadeobetancor_/" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+    @tadeobetancor_
+  </a>
+</footer>
+
+<div class="grain" aria-hidden="true"></div>
+
+<script>
+/* =========================================================
+   CONFIG
+   ========================================================= */
+const WHATSAPP = "5491131635898";
+const FRANJA = ["Tu marca merece estar online", "Webs", "Branding"];   // frases de la franja negra
+const INTRO_SIEMPRE = true;                  // false = la intro se ve una sola vez por visita
+const RESPETAR_MOVIMIENTO_REDUCIDO = false;  // true = sin animaciones si el sistema las tiene apagadas
+
+// Para sumar una página: copiá un bloque y cambiá los datos. "img" es la captura (1280x860 aprox).
+const PROJECTS = [
+  { name:"Vapesoon", url:"https://vapesoon.vercel.app", img:"assets/proyectos/vapesoon.webp", rubro:"Tienda de vapes",
+    caption:"ejemplo de e-commerce", desc:"Tienda de vapes con pedidos por WhatsApp." },
+  { name:"RepZone", url:"https://repzoneoficial.vercel.app", img:"assets/proyectos/repzone.webp", rubro:"Suplementos deportivos",
+    caption:"ejemplo de tienda con carrito", desc:"Tienda de suplementos con combos y carrito." },
+];
+
+// Servicios que el cliente puede marcar para cotizar
+const SERVICIOS = [
+  { e:"🚀", t:"Landing page",        d:"Una página para vender un producto o servicio." },
+  { e:"🖥️", t:"Página web completa", d:"Inicio, servicios, galería y contacto." },
+  { e:"🛒", t:"Tienda online",       d:"Catálogo con carrito y pedidos a tu WhatsApp." },
+  { e:"✨", t:"Logo e identidad",    d:"Logo, colores y tipografías para tu marca." },
+  { e:"📈", t:"Publicidad en redes", d:"Campañas en Instagram y Facebook para traer clientes." },
+  { e:"🛠️", t:"Mantenimiento",       d:"Cambios, actualizaciones y soporte." },
+];
+
+// Preguntas para conocer al cliente. "etiqueta" es como aparece la respuesta en el mensaje de WhatsApp.
+const PREGUNTAS = [
+  { id:"negocio",   etiqueta:"Negocio",        q:"¿A qué se dedica tu negocio?",
+    op:["Vendo productos","Ofrezco servicios","Gastronomía","Marca personal","Todavía es una idea"] },
+  { id:"web",       etiqueta:"Página actual",  q:"¿Ya tenés página web?",
+    op:["No, sería la primera","Sí, pero quiero renovarla","Solo tengo redes sociales"] },
+  { id:"objetivo",  etiqueta:"Objetivo",       q:"¿Qué querés lograr con la página?",
+    op:["Vender más","Que me encuentren en Google","Verme más profesional","Recibir pedidos por WhatsApp"] },
+  { id:"marca",     etiqueta:"Identidad",      q:"¿Ya tenés logo y colores de marca?",
+    op:["Sí, ya los tengo","Tengo, pero quiero mejorarlos","No, arranco desde cero"] },
+  { id:"plazo",     etiqueta:"Plazo",          q:"¿Para cuándo la necesitás?",
+    op:["Lo antes posible","En el próximo mes","Sin apuro"] },
+  { id:"inversion", etiqueta:"Inversión",      q:"¿Cuánto pensás invertir?",
+    op:["Algo accesible para arrancar","Una inversión media","Quiero lo mejor","Prefiero que me asesores"] },
+];
+
+/* ======================= utilidades ======================= */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const html = document.documentElement;
+const reduce = RESPETAR_MOVIMIENTO_REDUCIDO && matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(reduce) html.classList.add("rm");
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function rng(seed){ return ()=> (seed = (seed*16807) % 2147483647, (seed-1)/2147483646); }
+
+/* ======================= papel rasgado ======================= */
+function tearPoints(seed, amp){
+  const r = rng(seed), pts = [];
+  for(let i=0, n=64; i<=n; i++){
+    let y = r()*amp*.55;
+    if(r() < .18) y += r()*amp*.45;
+    pts.push([(i/n*100).toFixed(2), y.toFixed(1)]);
+  }
+  return pts;
+}
+// borde de abajo del papel de la intro
+const tearBottom = (seed, amp) => `polygon(0 0,100% 0,${tearPoints(seed,amp).reverse().map(([x,y])=>`${x}% calc(100% - ${y}px)`).join(",")})`;
+$$(".curtain-edge i").forEach((el,i) => el.style.clipPath = tearBottom(31 + i*7, 32));
+// franja: rasgada arriba y abajo
+const tearBoth = (seed, amp) => `polygon(${tearPoints(seed,amp).map(([x,y])=>`${x}% ${y}px`).join(",")},${tearPoints(seed+3,amp).reverse().map(([x,y])=>`${x}% calc(100% - ${y}px)`).join(",")})`;
+$$("[data-tear]").forEach(el => el.style.clipPath = tearBoth(+el.dataset.tear, 22));
+const frases = FRANJA.map(t => `${esc(t)}<i>✦</i>`).join("");
+$("#marq").innerHTML = `<span>${frases}${frases}</span><span>${frases}${frases}</span>`;
+
+/* ======================= botones desplegables ======================= */
+function setOpen(acc, open){
+  acc.classList.toggle("open", open);
+  acc.querySelector(".acc-btn").setAttribute("aria-expanded", open);
+  acc.querySelector(".acc-panel").inert = !open;
+}
+$$(".acc-btn").forEach(btn => btn.addEventListener("click", () => {
+  const acc = btn.closest(".acc"), willOpen = !acc.classList.contains("open");
+  $$(".acc").forEach(a => setOpen(a, false));
+  if(willOpen){
+    setOpen(acc, true);
+    requestAnimationFrame(updateNav);
+    setTimeout(() => btn.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block:"start" }), 280);
+  }
+}));
+
+/* ======================= trabajos ======================= */
+const tilt = [-2.5, 2, -1.5, 3];
+$("#works").innerHTML = PROJECTS.map((p,i) => `
+  <article class="work">
+    <a class="polaroid" href="${esc(p.url)}" target="_blank" rel="noopener" style="--r:${tilt[i % tilt.length]}deg" aria-label="Abrir ${esc(p.name)}">
+      <span class="tape" aria-hidden="true"></span>
+      <img src="${esc(p.img)}" alt="Captura de ${esc(p.name)}" loading="lazy" width="960" height="645">
+      <span class="go" aria-hidden="true">↗</span>
+      <span class="cap">${esc(p.caption)}</span>
+    </a>
+    <div class="work-info">
+      <h3>${esc(p.name)}</h3>
+      <p>${esc(p.desc)}</p>
+    </div>
+  </article>`).join("");
+
+const table = $("#works");
+const step = () => { const c = table.querySelector(".work"); return c ? c.getBoundingClientRect().width + parseFloat(getComputedStyle(table).columnGap || 20) : 300; };
+function updateNav(){
+  const max = table.scrollWidth - table.clientWidth, n = PROJECTS.length;
+  const i = Math.min(n, Math.round(table.scrollLeft / step()) + 1);
+  $("#wCount").textContent = `${max <= 2 ? 1 : i} / ${n}`;
+  $("#wPrev").disabled = table.scrollLeft <= 2;
+  $("#wNext").disabled = table.scrollLeft >= max - 2;
+}
+$("#wPrev").onclick = () => table.scrollBy({ left: -step(), behavior: reduce ? "auto" : "smooth" });
+$("#wNext").onclick = () => table.scrollBy({ left: step(), behavior: reduce ? "auto" : "smooth" });
+table.addEventListener("scroll", () => requestAnimationFrame(updateNav), { passive:true });
+addEventListener("resize", updateNav);
+
+/* ======================= quiero mi página: mensaje según lo elegido ======================= */
+const check = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5l3 3 6-7" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$("#svcList").innerHTML = SERVICIOS.map((s,i) => `
+  <label class="svc">
+    <input type="checkbox" id="svc-${i}" value="${i}">
+    <span class="svc-card" style="--r:${[-.6,.5,-.3,.6,-.5,.4][i % 6]}deg">
+      <span class="box">${check}</span>
+      <span class="svc-txt"><b>${s.e} ${esc(s.t)}</b><small>${esc(s.d)}</small></span>
+    </span>
+  </label>`).join("");
+$("#preguntas").innerHTML = PREGUNTAS.map((q,i) => `
+  <fieldset class="q">
+    <legend class="q-title"><span class="q-n">${i + 2}</span>${esc(q.q)}</legend>
+    <div class="chips">${q.op.map((o,k) => `
+      <label class="chip"><input type="radio" name="q-${q.id}" value="${k}"><span style="--r:${[-1,.8,-.5,1.2,-.8][(i + k) % 5]}deg">${esc(o)}</span></label>`).join("")}
+    </div>
+  </fieldset>`).join("");
+
+// arma el mensaje de WhatsApp con todo lo que respondió (sin emojis)
+function updateQuote(){
+  const sel = $$("#svcList input:checked").map(i => SERVICIOS[+i.value]);
+  const send = $("#send"), marca = $("#marca").value.trim(), idea = $("#idea").value.trim();
+  if(!sel.length){ send.setAttribute("aria-disabled","true"); send.removeAttribute("href"); $("#sendHint").hidden = false; return; }
+  const lines = ["¡Hola Tadeo! Quiero cotizar mi página con desde cero.", ""];
+  if(marca) lines.push(`Marca: ${marca}`);
+  lines.push(`Servicios: ${sel.map(s => s.t).join(", ")}`);
+  PREGUNTAS.forEach(q => { const c = $(`input[name="q-${q.id}"]:checked`); if(c) lines.push(`${q.etiqueta}: ${q.op[+c.value]}`); });
+  if(idea) lines.push("", `Mi idea: ${idea}`);
+  lines.push("", "¿Me pasás una cotización?");
+  send.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join("\n"))}`;
+  send.setAttribute("aria-disabled","false"); $("#sendHint").hidden = true;
+}
+$("#quote").addEventListener("change", updateQuote);
+$("#quote").addEventListener("input", updateQuote);
+$("#quote").addEventListener("submit", e => e.preventDefault());
+
+/* ======================= aparecer ======================= */
+let io = null;
+if("IntersectionObserver" in window && !reduce){
+  html.classList.add("js-reveal");
+  io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin:"0px 0px -6% 0px", threshold:.1 });
+}
+function startReveals(){
+  const els = $$(".drop");
+  if(!io){ els.forEach(el => el.classList.add("in")); return; }
+  requestAnimationFrame(()=> els.forEach(el => el.getBoundingClientRect().top < innerHeight*.94 ? el.classList.add("in") : io.observe(el)));
+}
+
+/* ======================= INTRO ======================= */
+function runIntro(){
+  const intro = $("#intro");
+  let seen = false; try{ seen = sessionStorage.getItem("dc_intro") === "1"; }catch{}
+  if(reduce || (!INTRO_SIEMPRE && seen)){ intro.remove(); html.classList.remove("intro-on"); startReveals(); return; }
+  try{ sessionStorage.setItem("dc_intro","1"); }catch{}
+  const logo = $("#paintLogo"), img = $("#paintImg");
+  let leaving = false;
+  const leave = async () => {
+    if(leaving) return; leaving = true; clearTimeout(auto);
+    img.removeAttribute("mask");                       // logo completo aunque se toque antes
+    // el logo viaja a su lugar arriba mientras el papel de la intro se rasga y sube
+    const target = $("#heroLogo").getBoundingClientRect(), box = logo.getBoundingClientRect(), from = img.getBoundingClientRect();
+    const s = target.width / from.width;
+    const tx = target.left - box.left - (from.left - box.left)*s, ty = target.top - box.top - (from.top - box.top)*s;
+    logo.style.transition = "transform .9s cubic-bezier(.7,0,.2,1)";
+    logo.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
+    await sleep(250);
+    intro.classList.add("lift");
+    await sleep(820);
+    html.classList.remove("intro-on");
+    startReveals();
+    await sleep(60);
+    intro.remove();
+  };
+  const auto = setTimeout(leave, 1900);
+  intro.onclick = leave;
+  addEventListener("keydown", function k(e){ if(["Enter"," ","Escape"].includes(e.key)){ removeEventListener("keydown", k); leave(); } });
+}
+runIntro();
+</script>
+</body>
+</html>
