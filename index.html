@@ -141,7 +141,8 @@ img{display:block;height:auto;max-width:100%}
 .acc-btn .pm::after{transform:rotate(90deg);transition:transform .4s var(--out)}
 .acc.open .acc-btn .pm{transform:rotate(180deg)}
 .acc.open .acc-btn .pm::after{transform:rotate(0)}
-.acc.main .acc-btn{background:var(--ink);color:var(--white);box-shadow:5px 5px 0 var(--accent)}
+.acc.main .acc-btn{min-height:88px;padding-block:18px;background:var(--ink);color:var(--white);box-shadow:5px 5px 0 var(--accent)}
+.acc.main .acc-btn .t{font-size:clamp(20px,5.6vw,26px)}
 .acc.main .acc-btn:hover{box-shadow:7px 7px 0 var(--accent)}
 .acc.main .acc-btn .t small{color:rgba(251,250,247,.7)}
 .acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
@@ -219,9 +220,9 @@ img{display:block;height:auto;max-width:100%}
 .fine{margin:12px 0 0;font-family:var(--f-type);font-size:12.5px;color:var(--ink-soft);text-align:center}
 
 /* pie */
-.foot{display:flex;justify-content:center;padding-block:28px calc(26px + env(safe-area-inset-bottom,0px))}
+.foot{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding-block:28px calc(26px + env(safe-area-inset-bottom,0px))}
 .ig{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;text-decoration:none;font-family:var(--f-display);font-stretch:112%;font-weight:800;font-size:14px;
-  border:2px solid var(--ink);border-radius:999px;background:var(--white);transform:rotate(-1.5deg);transition:transform .3s var(--out),box-shadow .3s}
+  border:2px solid var(--ink);border-radius:999px;background:var(--white);transform:rotate(var(--r,-1.5deg));transition:transform .3s var(--out),box-shadow .3s}
 .ig:hover{transform:rotate(0) translateY(-2px);box-shadow:3px 3px 0 var(--accent)}
 
 @media (min-width:760px){
@@ -270,48 +271,14 @@ html.rm *,html.rm *::before,html.rm *::after{animation-duration:.01ms!important;
   <span class="label year">2026</span>
 </header>
 
-<div class="strip" aria-label="Tu marca merece estar online. Webs. Branding.">
+<div class="strip" aria-label="Webs. Tiendas. Logos. Publicidad.">
   <div class="fiber" data-tear="5"></div>
   <div class="ink" data-tear="9"><div class="marq" aria-hidden="true"><div class="marq-track" id="marq"></div></div></div>
 </div>
 
 <!-- ======================= BOTONES ======================= -->
 <main class="links wrap">
-  <section class="acc drop" style="--r:-.6deg">
-    <button class="acc-btn" aria-expanded="false" aria-controls="p-trabajos" id="b-trabajos">
-      <span class="e" aria-hidden="true">🗂️</span>
-      <span class="t">Mis trabajos<small>Páginas que ya están online</small></span>
-      <span class="pm" aria-hidden="true"></span>
-    </button>
-    <div class="acc-panel" id="p-trabajos" role="region" aria-labelledby="b-trabajos" inert><div><div class="acc-in">
-      <div class="table" id="works"></div>
-      <div class="w-nav">
-        <button class="nav-btn" id="wPrev" aria-label="Página anterior">←</button>
-        <span class="label" id="wCount">1 / 1</span>
-        <button class="nav-btn" id="wNext" aria-label="Página siguiente">→</button>
-      </div>
-    </div></div></div>
-  </section>
-
-  <section class="acc drop" style="--r:.5deg;--d:.08s">
-    <button class="acc-btn" aria-expanded="false" aria-controls="p-sobre" id="b-sobre">
-      <span class="e" aria-hidden="true">🙋‍♂️</span>
-      <span class="t">Sobre mí<small>¿Quién está detrás de desde cero?</small></span>
-      <span class="pm" aria-hidden="true"></span>
-    </button>
-    <div class="acc-panel" id="p-sobre" role="region" aria-labelledby="b-sobre" inert><div><div class="acc-in about">
-      <h3><span class="cut">Tadeo Betancor</span></h3>
-      <p>Me gusta programar y diseñar <b>proyectos a gran escala</b>. Fundé <b>desde cero</b> para que marcas y emprendedores tengan una página que trabaje por ellos todos los días. 🚀</p>
-      <p>Diseño, programo y armo el marketing en un solo lugar: hablás directo conmigo, de la idea a la página online.</p>
-      <h4>Lo que hago</h4>
-      <ul class="labels">
-        <li style="--r:-2deg">🖥️ Páginas web</li><li style="--r:1.5deg">🛒 Tiendas online</li><li style="--r:-1deg">🎨 Diseño</li>
-        <li style="--r:2deg">📈 Publicidad en redes</li><li style="--r:-1.5deg">✨ Identidad de marca</li>
-      </ul>
-    </div></div></div>
-  </section>
-
-  <section class="acc main drop" style="--r:-.4deg;--d:.16s">
+  <section class="acc main drop" style="--r:-.4deg">
     <button class="acc-btn" aria-expanded="false" aria-controls="p-quiero" id="b-quiero">
       <span class="e" aria-hidden="true">💬</span>
       <span class="t">Quiero mi página<small>Elegí lo que necesitás y cotizá</small></span>
@@ -335,12 +302,50 @@ html.rm *,html.rm *::before,html.rm *::after{animation-duration:.01ms!important;
       </form>
     </div></div></div>
   </section>
+
+  <section class="acc drop" style="--r:-.6deg;--d:.08s">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p-trabajos" id="b-trabajos">
+      <span class="e" aria-hidden="true">🗂️</span>
+      <span class="t">Mis trabajos<small>Páginas que ya están online</small></span>
+      <span class="pm" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p-trabajos" role="region" aria-labelledby="b-trabajos" inert><div><div class="acc-in">
+      <div class="table" id="works"></div>
+      <div class="w-nav">
+        <button class="nav-btn" id="wPrev" aria-label="Página anterior">←</button>
+        <span class="label" id="wCount">1 / 1</span>
+        <button class="nav-btn" id="wNext" aria-label="Página siguiente">→</button>
+      </div>
+    </div></div></div>
+  </section>
+
+  <section class="acc drop" style="--r:.5deg;--d:.16s">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p-sobre" id="b-sobre">
+      <span class="e" aria-hidden="true">🙋‍♂️</span>
+      <span class="t">Sobre mí<small>¿Quién está detrás de desde cero?</small></span>
+      <span class="pm" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p-sobre" role="region" aria-labelledby="b-sobre" inert><div><div class="acc-in about">
+      <h3><span class="cut">Tadeo Betancor</span></h3>
+      <p>Me gusta programar y diseñar <b>proyectos a gran escala</b>. Fundé <b>desde cero</b> para que marcas y emprendedores tengan una página que trabaje por ellos todos los días. 🚀</p>
+      <p>Diseño, programo y armo el marketing en un solo lugar: hablás directo conmigo, de la idea a la página online.</p>
+      <h4>Lo que hago</h4>
+      <ul class="labels">
+        <li style="--r:-2deg">🖥️ Páginas web</li><li style="--r:1.5deg">🛒 Tiendas online</li><li style="--r:-1deg">🎨 Diseño</li>
+        <li style="--r:2deg">📈 Publicidad en redes</li><li style="--r:-1.5deg">✨ Identidad de marca</li>
+      </ul>
+    </div></div></div>
+  </section>
 </main>
 
 <footer class="foot">
   <a class="ig" href="https://www.instagram.com/tadeobetancor_/" target="_blank" rel="noopener">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
     @tadeobetancor_
+  </a>
+  <a class="ig" href="https://www.instagram.com/desdecero.labs/" target="_blank" rel="noopener" style="--r:1.5deg">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+    @desdecero.labs
   </a>
 </footer>
 
@@ -351,7 +356,7 @@ html.rm *,html.rm *::before,html.rm *::after{animation-duration:.01ms!important;
    CONFIG
    ========================================================= */
 const WHATSAPP = "5491131635898";
-const FRANJA = ["Tu marca merece estar online", "Webs", "Branding"];   // frases de la franja negra
+const FRANJA = ["Webs", "Tiendas", "Logos", "Publicidad"];   // palabras de la franja negra (lo que hago, una palabra cada una)
 const INTRO_SIEMPRE = true;                  // false = la intro se ve una sola vez por visita
 const RESPETAR_MOVIMIENTO_REDUCIDO = false;  // true = sin animaciones si el sistema las tiene apagadas
 
@@ -365,9 +370,8 @@ const PROJECTS = [
 
 // Servicios que el cliente puede marcar para cotizar
 const SERVICIOS = [
-  { e:"🚀", t:"Landing page",        d:"Una página para vender un producto o servicio." },
-  { e:"🖥️", t:"Página web completa", d:"Inicio, servicios, galería y contacto." },
-  { e:"🛒", t:"Tienda online",       d:"Catálogo con carrito y pedidos a tu WhatsApp." },
+  { e:"🚀", t:"Landing page",        d:"Una sola página que presenta tu negocio y lleva al cliente a escribirte." },
+  { e:"🛒", t:"Tienda online",       d:"Todos tus productos con precio y carrito: el cliente arma el pedido y te llega por WhatsApp." },
   { e:"✨", t:"Logo e identidad",    d:"Logo, colores y tipografías para tu marca." },
   { e:"📈", t:"Publicidad en redes", d:"Campañas en Instagram y Facebook para traer clientes." },
   { e:"🛠️", t:"Mantenimiento",       d:"Cambios, actualizaciones y soporte." },
@@ -379,12 +383,6 @@ const PREGUNTAS = [
     op:["Vendo productos","Ofrezco servicios","Gastronomía","Marca personal","Todavía es una idea"] },
   { id:"web",       etiqueta:"Página actual",  q:"¿Ya tenés página web?",
     op:["No, sería la primera","Sí, pero quiero renovarla","Solo tengo redes sociales"] },
-  { id:"objetivo",  etiqueta:"Objetivo",       q:"¿Qué querés lograr con la página?",
-    op:["Vender más","Que me encuentren en Google","Verme más profesional","Recibir pedidos por WhatsApp"] },
-  { id:"marca",     etiqueta:"Identidad",      q:"¿Ya tenés logo y colores de marca?",
-    op:["Sí, ya los tengo","Tengo, pero quiero mejorarlos","No, arranco desde cero"] },
-  { id:"plazo",     etiqueta:"Plazo",          q:"¿Para cuándo la necesitás?",
-    op:["Lo antes posible","En el próximo mes","Sin apuro"] },
   { id:"inversion", etiqueta:"Inversión",      q:"¿Cuánto pensás invertir?",
     op:["Algo accesible para arrancar","Una inversión media","Quiero lo mejor","Prefiero que me asesores"] },
 ];
@@ -537,7 +535,9 @@ function runIntro(){
     await sleep(60);
     intro.remove();
   };
-  const auto = setTimeout(leave, 1900);
+  // sale apenas termina el último trazo del pincel (con un respiro corto); el timer es solo de respaldo
+  const auto = setTimeout(leave, 1700);
+  $$(".bs")[3].addEventListener("animationend", () => setTimeout(leave, 120), { once:true });
   intro.onclick = leave;
   addEventListener("keydown", function k(e){ if(["Enter"," ","Escape"].includes(e.key)){ removeEventListener("keydown", k); leave(); } });
 }
